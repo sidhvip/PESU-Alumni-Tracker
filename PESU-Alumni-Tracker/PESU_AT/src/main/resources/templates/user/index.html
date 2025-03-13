@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>PESU AT - index</title>
+
+	<link rel="icon" type="../vendor/image/png" href="Error/pic.jpg"/>
+  <link rel="stylesheet" href="../pesuat/vendors/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="../pesuat/vendors/fontawesome/css/all.min.css">
+	<link rel="stylesheet" href="../pesuat/vendors/themify-icons/themify-icons.css">
+  <link rel="stylesheet" href="../pesuat/vendors/nice-select/nice-select.css">
+  <link rel="stylesheet" href="../pesuat/vendors/owl-carousel/owl.theme.default.min.css">
+  <link rel="stylesheet" href="../pesuat/vendors/owl-carousel/owl.carousel.min.css">
+  <link rel="stylesheet" href="../pesuat/css/style.css">
+</head>
+<body>
+
+  <main class="site-main">
+    
+    <!--================ Hero banner start =================-->
+    <section class="hero-banner">
+      <div class="container">
+        <div class="row no-gutters align-items-center pt-60px">
+          <div class="col-5 d-none d-sm-block">
+            <div class="hero-banner__img">
+              <img class="img-fluid" src="../pesuat/img/11.jpg" alt="">
+            </div>
+          </div>
+          <div class="col-sm-7 col-lg-6 offset-lg-1 pl-4 pl-md-5 pl-lg-0">
+            <div class="hero-banner__content">
+              <h2>PESU AT</h2>
+              <h3>PESU Alumni Tracker Portal</h3>
+              <p>Creating an engaged, supportive alumni network is crucial to an institution’s success. If communication stops once graduates leave an institution, their understanding of the university will become stale. Instead, they should be kept informed so they can remain engaged and keep abreast on the progress of the university.
+The portal is aimed at maintaining a comprehensive database of all the alumni of this university to achieve the same.</p>
+              <a class="button button-hero" th:href="@{/login}">Logout</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>	   
+   
+    <section class="section-margin calc-60px">
+      <div class="container">
+        <div class="section-intro pb-60px">
+          <p>PESU AT Tribute</p>
+          <h2>All <span class="section-intro__style">Alumni</span></h2>
+        </div>
+        <div class="owl-carousel owl-theme" id="bestSellerCarousel">
+        
+
+		<div class="card text-center card-product"  th:each="alumni : ${allalumni}">
+            <div class="card-product__img">
+              <img class="img-fluid" th:src="${alumni.image}" alt="">
+              <ul class="card-product__imgOverlay">
+            </ul>
+            </div>
+            <div class="card-body">
+              <p><label th:text="${alumni.year}"/></p>
+              <h4 class="card-product__title"><a th:href="@{/user/alumni(id=${alumni.id})}"><label th:text="${alumni.name}"/></a></h4>
+              <p class="card-product__price"><label th:text="${alumni.email}"/></p>
+            </div>
+          </div>
+
+		  
+        </div>
+      </div>
+    </section>
+    
+    <!-- ================ Subscribe section end ================= --> 
+
+  </main>
+
+  <!--================ Start footer Area  =================-->	
+	<footer class="footer">
+		<div class="footer-area">
+			<div class="container">
+				<div class="row section_gap">
+					<div class="col-lg-3 col-md-6 col-sm-6">
+						<div class="single-footer-widget tp_widgets">
+							<h4 class="footer_title large_title">PESU AT</h4>
+						</div>
+					</div>
+					<div class="offset-lg-1 col-lg-2 col-md-6 col-sm-6">
+						<div class="single-footer-widget tp_widgets">
+							<h4 class="footer_title">Quick Links</h4>
+							<ul class="list">
+								<li><a  th:href="@{/login}">Login</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-lg-2 col-md-6 col-sm-6">
+						<div class="single-footer-widget instafeed">
+							<h4 class="footer_title">Address</h4>
+							<p> PES University 100 Feet Ring Road, Banashankari Stage III, Dwaraka Nagar, Banashankari, Bengaluru, Karnataka 560085</p>
+	
+							<ul class="list instafeed d-flex flex-wrap">
+						
+							</ul>
+						</div>
+					</div>
+					<div class="offset-lg-1 col-lg-3 col-md-6 col-sm-6">
+						<div class="single-footer-widget tp_widgets">
+							<h4 class="footer_title">Contact Us</h4>
+							<div class="ml-40">
+								<p class="sm-head">
+									<span class="fa fa-location-arrow"></span>
+									RR CAMPUS
+								</p><p> Bengaluru, Karnataka</p>
+								
+								<p class="sm-head">
+									<span class="fa fa-phone"></span>
+									Phone Number
+								</p>
+								<p>
+									+91 80 26721983<br>
+																	</p>
+	
+								<p class="sm-head">
+									<span class="fa fa-envelope"></span>
+									Email
+								</p>
+								<p>
+									admissions@pes.edu<br>
+									www.pes.edu
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="footer-bottom">
+			<div class="container">
+				<div class="row d-flex">
+					<p class="col-lg-12 footer-text text-center">
+					
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This PESU AT is made by <i class="ion-heart" aria-hidden="true"></i> by <a href="https://github.com/s<TODO>" target="_blank">PESU Students Team</a>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<!--================ End footer Area  =================-->
+
+  <script src="../pesuat/vendors/jquery/jquery-3.2.1.min.js"></script>
+  <script src="../pesuat/vendors/bootstrap/bootstrap.bundle.min.js"></script>
+  <script src="../pesuat/vendors/skrollr.min.js"></script>
+  <script src="../pesuat/vendors/owl-carousel/owl.carousel.min.js"></script>
+  <script src="../pesuat/vendors/nice-select/jquery.nice-select.min.js"></script>
+  <script src="../pesuat/vendors/jquery.ajaxchimp.min.js"></script>
+  <script src="../pesuat/vendors/mail-script.js"></script>
+  <script src="../pesuat/js/main.js"></script>
+</body>
+</html>
